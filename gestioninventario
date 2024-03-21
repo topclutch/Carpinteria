@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Inventario de Muebles</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f2f2f2; /* Light gray background */
+      margin: 0;
+      padding: 0;
+    }
+
+    header {
+      background-color: #343a40; /* Dark gray background */
+      color: white;
+      padding: 15px 20px; /* Increased padding for better spacing */
+      text-align: center;
+    }
+
+    h1 {
+      color: white; /* White title text */
+      text-align: center;
+      margin-top: 0; /* Removed margin-top for cleaner alignment */
+      font-size: 2em; /* Increased font size for emphasis */
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 20px;
+    }
+
+    th, td {
+      padding: 10px;
+      text-align: left;
+      border-bottom: 1px solid #ddd;
+    }
+
+    th {
+      background-color: #454d55; /* Darker gray for table header */
+      color: white;
+    }
+
+    tr:nth-child(even) {
+      background-color: #ebebeb; /* Slightly lighter gray for even rows */
+    }
+
+    .btn {
+      padding: 8px 15px; /* Adjusted padding for better button size */
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      text-decoration: none;
+    }
+
+    .btn-info {
+      background-color: #007bff;
+      color: white;
+    }
+
+    .btn-warning {
+      background-color: #ffc107;
+      color: black;
+    }
+
+    .btn-danger {
+      background-color: #dc3545;
+      color: white;
+    }
+
+    footer {
+      background-color: #343a40; /* Consistent footer color */
+      color: white;
+      padding: 10px;
+      text-align: center;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Inventario de Muebles</h1>
+  </header>
+
+  <table class="table">
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>Nombre</th>
+        <th>Color</th>
+        <th>Precio</th>
+        <th>Dimensiones</th>
+        <th>Material</th>
+        <th>Stock</th>
+        <th>Descripción</th>
+      </tr>
+    </thead>
+    <tbody>
+      @foreach ($muebles as $mueble)
+        <tr>
+          <td>{{ $mueble->id }}</td>
+          <td>{{ $mueble->nombre }}</td>
+          <td>{{ $mueble->color }}</td>
+          <td>{{ $mueble->precio }}</td>
+          <td>{{ $mueble->dimensiones }}</td>
+          <td>{{ $mueble->material }}</td>
+          <td>{{ $mueble->stock }}</td>
+          <td>{{ $mueble->descripcion }}</td>
+        </tr>
+      @endforeach
+    </tbody>
+  </table>
+
+  <footer>
+    <p>&copy; {{ date('Y') }} Punto de venta de Muebles </p>
+  </footer>
+</body>
+</html>
